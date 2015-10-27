@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013, 2014
+<?php // (C) Copyright Bobbing Wide 2013-2015
 
 /**
  * Return the most appropriate field name given the value that the user typed
@@ -17,6 +17,9 @@
  *  admin_color, plugins_per_page, plugins_last_view, ID
  * 
  * Then there's the additional fields added by tools such as WP-member: dob, sex, FBconnect, Twitterconnect ... which are managed by what? **?**
+ *
+ * @param string $field field name to map
+ * @return string mapped field name 
  */
 function oiku_map_field( $field ) {
   static $fields = array( "bio" => "description" 
@@ -143,27 +146,22 @@ function bw_user__snippet( $shortcode="bw_user" ) {
 
 /**
  * Display the fields for the user
- *
- * @param WP_User $user - A WP_User object
- * @param array $atts - shortcode parameters
- * 
  * 
  * The WP_User Object consists of:
- 
-  WP_User Object
+ * `
         (
             [data] => stdClass Object
                 (
                     [ID] => 1
-                    [user_login] => admin
-                    [user_pass] => $P$BijsY7/BdZ9AzR8YdJwYVVt68FBovk0
-                    [user_nicename] => admin
-                    [user_email] => cweec@cwiccer.com
-                    [user_url] => http://cwiccer.com
+                    [user_login] => #########
+                    [user_pass] => $###############
+                    [user_nicename] => ########
+                    [user_email] => ######@######
+                    [user_url] => http://##########
                     [user_registered] => 2010-12-23 12:22:39
-                    [user_activation_key] => qLc3INyEWwBOsfFDnZeV
-                    [user_status] => 0
-                    [display_name] => vsgloik
+                    [user_activation_key] => ###############
+                    [user_status] => #
+                    [display_name] => ##########
                 )
 
             [ID] => 1
@@ -189,9 +187,11 @@ function bw_user__snippet( $shortcode="bw_user" ) {
 
             [filter] => 
         )
-
-    
-)
+	`
+ *
+ * @param WP_User $user - A WP_User object
+ * @param array $atts - shortcode parameters
+ * 
  */
 function oiku_display_user( $user, $atts ) {
   $fields = bw_array_get( $atts, "fields", "name,bio,email" );
