@@ -229,6 +229,8 @@ function oiku_user_contactmethods( $contact_methods ) {
   $contact_methods = oiku_user_contactmethod( $contact_methods, "youtube", "YouTube URL"," [bw_youtube]" );
   $contact_methods = oiku_user_contactmethod( $contact_methods, "flickr", "Flickr URL"," [bw_flickr]" );
   $contact_methods = oiku_user_contactmethod( $contact_methods, "picasa", "Picasa URL"," [bw_picasa]" );
+  $contact_methods = oiku_user_contactmethod( $contact_methods, "pinterest", "Pinterest URL"," [bw_pinterest]" );
+  $contact_methods = oiku_user_contactmethod( $contact_methods, "instagram", "Instagram URL"," [bw_instagram]" );
   $contact_methods = oiku_user_contactmethod( $contact_methods, "skype", "Skype"," [bw_skype]" );
   return( $contact_methods ); 
 }
