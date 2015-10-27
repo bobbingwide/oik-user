@@ -3,12 +3,15 @@
 Plugin Name: oik user
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik-user
 Description: oik lazy smart shortcodes by user ID/name
-Version: 0.5
+Version: 0.5.1
 Author: bobbingwide
-Author URI: http://www.bobbingwide.com
-License: GPL2
+Author URI: http://www.oik-plugins.com/author/bobbingwide
+Text Domain: oik-user
+Domain Path: /languages/
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-    Copyright 2013, 2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2013-2015 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -54,6 +57,8 @@ function oiku_admin_menu() {
  * Implement the "admin_notices" action for oik-user
  * 
  * oik-user is dependent upon the oik base plugin v2.0 or higher
+ * Since v0.5 oik-user has been dependent upon oik-fields
+ * v0.5.1 is now dependent upon oik v2.5 or higher and oik-fields v1.40.1
  *
  */ 
 function oiku_activation() {
@@ -65,7 +70,7 @@ function oiku_activation() {
       require_once( "admin/oik-activation.php" );
     }  
   }  
-  $depends = "oik:2.2,oik-fields:1.37";
+  $depends = "oik:2.5,oik-fields:1.40.1";
   oik_plugin_lazy_activation( __FILE__, $depends, "oik_plugin_plugin_inactive" );
 }
 
