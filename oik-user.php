@@ -33,6 +33,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Implement the "oik_loaded" action for oik-user
  */
 function oiku_loaded() {
+
+  add_action( "admin_bar_menu", "oiku_admin_bar_menu", 30 );
 }
 
 /**
@@ -217,7 +219,6 @@ function oiku_plugin_loaded() {
   add_action( "oik_pre_theme_field", "oiku_pre_theme_field" );
   add_action( "oik_pre_form_field", "oiku_pre_form_field" );
   add_filter( "bw_field_validation_userref", "oiku_field_validation_userref", 10, 3 );
-  add_action( "admin_bar_menu", "oiku_admin_bar_menu", 30 );
   add_action( "oik_fie_edit_field_type_userref", "oiku_oik_fie_edit_field_type_userref" );
 }
 
