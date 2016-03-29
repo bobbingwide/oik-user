@@ -303,6 +303,7 @@ function bw_users__syntax( $shortcode="bw_users" ) {
                  , "meta_key" => bw_skv( null, "<i>field name</i>", "Meta field name" )
                  , "meta_value" => bw_skv( null, "<i>value</i>", "Meta field value" )
                  , "meta_compare" => bw_skv( "=", "!=|>|>=|<|<=", "Operator to test the meta value" )
+                 , "meta_compare" => bw_skv( "EQ", "NE|GT|GE|LT|LE", "Operator to test the meta value" )
                  , 'include' => bw_skv( null, "<i>id1,id2</i>", "IDs to include" )
                  , 'exclude' => bw_skv( null, "<i>id1,id2</i>", "IDs to exclude" )
                  );
