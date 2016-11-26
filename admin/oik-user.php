@@ -232,6 +232,7 @@ function oiku_user_contactmethods( $contact_methods ) {
   $contact_methods = oiku_user_contactmethod( $contact_methods, "pinterest", "Pinterest URL"," [bw_pinterest]" );
   $contact_methods = oiku_user_contactmethod( $contact_methods, "instagram", "Instagram URL"," [bw_instagram]" );
   $contact_methods = oiku_user_contactmethod( $contact_methods, "skype", "Skype"," [bw_skype]" );
+  $contact_methods = oiku_user_contactmethod( $contact_methods, "github", "GitHub"," " );
   return( $contact_methods ); 
 }
 
