@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2015
+<?php // (C) Copyright Bobbing Wide 2013-2016
 
 /**
  * Return the most appropriate field name given the value that the user typed
@@ -26,7 +26,8 @@ function oiku_map_field( $field ) {
                         , "name" => "display_name"
                         , "forename" => "first_name"
                         , "surname" => "last_name"
-                        , "site" => "url" 
+                        , "site" => "url"
+												, "nickname" => "nicename" 
                         );
   $name = bw_array_get( $fields, $field, $field );
   oiku_register_field( $name ); 
@@ -36,6 +37,10 @@ function oiku_map_field( $field ) {
 /**
  * Register a field if the name matches
  *
+ * @param string $name 
+ * @param string $field
+ * @param string $type
+ * @param string $title
  */
 function bw_mayberegister_field( $name, $field, $type, $title ) {
   if ( $name == $field ) {
@@ -50,11 +55,11 @@ function bw_mayberegister_field( $name, $field, $type, $title ) {
  * This is so we can format the field according to the field type.
  * e.g. Create an email link for an email address, a link for an URL.
  * 
- *
+ * @param string $name 
  */  
 function oiku_register_field( $name ) {
   bw_mayberegister_field( $name, "display_name", "text", "User name" );
-  bw_mayberegister_field( $name, "description", "text", "Description" );
+  bw_mayberegister_field( $name, "description", "sctext", "Description" );
   bw_mayberegister_field( $name, "email", "email", "Email" );
   bw_mayberegister_field( $name, "url", "URL", "Website" );
 }
@@ -92,13 +97,29 @@ function oiku_format_fields( $user, $atts ) {
  *
  * Display the selected fields for a user
  *
+ * @param array $atts shortcode parameters
+ * @param string $content - Additional data after the other fields
+ * @param string $tag - shortcode name
+ * @return string generated HTML
  */
 function oiku_user( $atts=null, $content=null, $tag=null ) {
   $id = bw_array_get_dcb( $atts, "user", false, "bw_default_user", null );
   // e( "Current id is: $id " );
   $user = bw_get_user( $id );
+	
   if ( $user ) {
-    oiku_format_fields( $id, $atts );
+		//bw_trace2( $user, "user" );
+		$class = bw_array_get( $atts, "class", null );
+		if ( $class ) {
+			sdiv( $class );
+		}
+    oiku_format_fields( $user->ID, $atts );
+		if ( $content ) {
+			e( bw_do_shortcode( $content ));
+		}
+		if ( $class ) {
+			ediv( $class );
+		}
   } else {
     bw_trace2( $id, "User not found" );
     //e( "User not found: $id " );
@@ -113,12 +134,73 @@ function bw_user__help( $shortcode="bw_user" ) {
   return( "Display information about a user" );
 }
 
+/** 
+ * Get field list
+ * 
+ * Fields are Registered? if they're of interest 
+ * and can be displayed nicely with a sensible label.
+ * Fields with '-' for Registered are not included in the list of fields in the shortcode help.
+ * 
+ * Note: The label and separator can be styled using CSS
+ * To display an author-box a few of the labels are set to display no.
+* 
+ 
+ * User fields according to above link include: 
+ *
+ * user_login | 
+ * user_pass |
+ * user_nicename | 
+ * user_email | 
+ * user_url | 
+ * user_registered | 
+ * user_activation_key |
+ * user_status | 
+ 
+ display_name, nickname, first_name, last_name,  
+ *  user_level, user_firstname, user_lastname, user_description, rich_editing, comment_shortcuts,
+ *   plugins_per_page, plugins_last_view, ID
+ * 
+ * Registered? | Field  	 | Alias
+ * --------    | --------- | -----
+ * virtual     | gravatar 
+ * -           | admin_color 
+ * -           | aim | 
+ * -           | comment_shortcuts 
+ * sctext      | description | bio
+ * -           | facebook |  
+ * -           | dismissed_wp_pointers 
+ * text |  first_name | forename
+ * - | googleplus
+ * - | jabber
+ * text | last_name | surname
+ * text | nickname | nicename
+ * - | rich_editing
+ * - | show_admin_bar_front
+ * - | twitter
+ * - | use_ssl
+ * - | wp_capabilities
+ * - | wp_user_level
+ * - | wpseo_*
+ * - | yim
+ * - | billing_address_1
+ * - | billing_address_2
+ *
+ */
+function bw_user_field_list() {
+	$field_list = "gravatar|description|forename|surname|nickname|display_name|login";
+	return( $field_list );
+}
+
 /**
  * Implement syntax hook for [bw_user]
+ * 
+ * 
  */
 function bw_user__syntax( $shortcode="bw_user" ) {
+
+	$field_list = bw_user_field_list();
   $syntax = array( "user" => bw_skv( bw_default_user(), "<i>id</i>|<i>email</i>|<i>slug</i>|<i>login</i>", "Value to identify the user" )
-                 , "fields" => bw_skv( "name,bio,email", "<i>field1,field2</i>", "Comma separated list of fields" )
+                 , "fields" => bw_skv( "name,bio,email", "$field_list|<i>field1,field2</i>", "Comma separated list of fields" )
                  );
   return( $syntax );
 }

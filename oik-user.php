@@ -3,7 +3,7 @@
 Plugin Name: oik user
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik-user
 Description: oik lazy smart shortcodes by user ID/name
-Version: 0.5.2
+Version: 0.6.0
 Author: bobbingwide
 Author URI: http://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik-user
@@ -57,11 +57,11 @@ function oiku_admin_menu() {
 /**
  * Implement the "admin_notices" action for oik-user
  * 
- * oik-user is dependent upon the oik base plugin v2.0 or higher
- * Since v0.5 oik-user has been dependent upon oik-fields
- * v0.5.1 is now dependent upon oik v2.5 or higher and oik-fields v1.40.1
- * v0.5.2 is now dependent upon oik v2.6 or higher and oik-fields v1.
- *
+ * - oik-user is dependent upon the oik base plugin v2.0 or higher
+ * - Since v0.5 oik-user has been dependent upon oik-fields
+ * - v0.5.1 is now dependent upon oik v2.5 or higher and oik-fields v1.40.1
+ * - v0.5.2 is now dependent upon oik v2.6 or higher and oik-fields v1.40.2
+ * - v0.6.0 is now dependent upon oik v3.1 or higher and oik-fields v1.40.4
  */ 
 function oiku_activation() {
   static $plugin_basename = null;
@@ -72,7 +72,7 @@ function oiku_activation() {
       require_once( "admin/oik-activation.php" );
     }  
   }  
-  $depends = "oik:2.5,oik-fields:1.40.1";
+  $depends = "oik:3.1,oik-fields:1.40.4";
   oik_plugin_lazy_activation( __FILE__, $depends, "oik_plugin_plugin_inactive" );
 }
 
@@ -160,6 +160,7 @@ function oiku_query_field_types( $field_types ) {
  *  
  * The structure we're changing is the node for 'my-account'
  * e.g.
+ * `
     [id] => my-account
     [parent] => top-secondary
     [title] => Howdy, vsgloik<img alt='' onerror='this.src="http://qw/wordpress/wp-content/themes/rngs0721/images/no-avatar.jpg"' src='http://1.gravatar.com/avatar/1c32865f0cfb495334dacb5680181f2d?s=26&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D26&amp;r=G' class='avatar avatar-26 photo' height='26' width='26' />
@@ -169,7 +170,7 @@ function oiku_query_field_types( $field_types ) {
             [class] => with-avatar
             [title] => My Account
         )
- *
+ * `
  */
 function oiku_admin_bar_menu( &$wp_admin_bar ) {
   $current_user = wp_get_current_user();
@@ -205,6 +206,22 @@ function oiku_oik_fie_edit_field_type_userref() {
 }
 
 /**
+ * Implement oik_fields_loaded for oik-user
+ * 
+ * Registers the virtual field Gravatar
+ */
+function oiku_oik_fields_loaded() {
+	$field_args = array( "#callback" => "oiku_get_gravatar"
+										 , "#parms" => "" 
+										 , "#plugin" => "oik-user"
+										 , "#file" => "includes/oik-user.php"
+										 , "#form" => false
+										 , "#hint" => "virtual field"
+										 ); 
+	bw_register_field( "gravatar", "virtual", "Gravatar", $field_args );
+}
+
+/**
  * Function to run when the plugin file is loaded
  *  
  */
@@ -220,6 +237,7 @@ function oiku_plugin_loaded() {
   add_action( "oik_pre_form_field", "oiku_pre_form_field" );
   add_filter( "bw_field_validation_userref", "oiku_field_validation_userref", 10, 3 );
   add_action( "oik_fie_edit_field_type_userref", "oiku_oik_fie_edit_field_type_userref" );
+	add_action( "oik_fields_loaded", "oiku_oik_fields_loaded", 10 );
 }
 
 oiku_plugin_loaded();

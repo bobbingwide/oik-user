@@ -3,8 +3,8 @@ Contributors: bobbingwide
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, smart, lazy
 Requires at least: 4.2
-Tested up to: 4.5-RC1
-Stable tag: 0.5.2
+Tested up to: 4.7-RC1
+Stable tag: 0.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,6 +88,9 @@ Note: This plugin can be used in addition to the oik third contact plugin.
 4. [bw_users] in action 
 
 == Upgrade Notice ==
+= 0.6.0 = 
+Tested with WordPress 4.7. Depends on oik v3.1 and oik-fields v1.40.4
+
 = 0.5.2 =
 Fixes problem when oik is not active. Tested with WordPress 4.5
 
@@ -125,6 +128,11 @@ Dependent upon oik v2.0-alpha.0322
 oik-user is dependent upon oik base plugin v2.0-alpha
 
 == Changelog ==
+= 0.6.0 = 
+* Added: Add gravatar virtual field and author-box styling [github bobbingwide oik-user issue 3]
+* Added: GitHub contact method
+* Tested: With WordPress 4.7 and WordPress Multisite
+
 = 0.5.2 =
 * Fixed: Uncaught Error: Call to undefined function bw_get_user_field() when oik deactivated [github bobbingwide oik-user issue 2]
 * Tested: With WordPress 4.5 and WordPress MultiSite
