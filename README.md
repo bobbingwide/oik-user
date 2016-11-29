@@ -132,6 +132,7 @@ oik-user is dependent upon oik base plugin v2.0-alpha
 # 0.6.0 
 * Added: Add gravatar virtual field and author-box styling https://github.com/bobbingwide/oik-user/issues/3
 * Added: GitHub contact method
+* Changed: Allow bw_user's fields parameter to be the first positional parameter https://github.com/bobbingwide/oik-user/issues/4
 * Tested: With WordPress 4.7 and WordPress Multisite
 
 # 0.5.2 
