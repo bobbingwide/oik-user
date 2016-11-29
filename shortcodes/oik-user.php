@@ -1,52 +1,85 @@
 <?php // (C) Copyright Bobbing Wide 2013-2016
 
 /**
- * Return the most appropriate field name given the value that the user typed
+ * Register the user field if required
  * 
- * Note: We don't need to prefix some fields with user_ as get_the_author_meta does that
+ * Find the most appropriate field name given the field name that the user typed
+ * determine it's field type ( if not text ) and the suggested label
+ * and register the field if it's necessary.
  *
- * We could either attach our own filters for each of the fields OR leave it to format_meta **?**
- * 
- * @link http://codex.wordpress.org/Function_Reference/the_author_meta
- * 
- * User fields according to above link include: 
- *
- *  user_login, user_pass, user_nicename, user_email, user_url, user_registered, user_activation_key,
- *  user_status, display_name, nickname, first_name, last_name, description, jabber, aim, yim
- *  user_level, user_firstname, user_lastname, user_description, rich_editing, comment_shortcuts,
- *  admin_color, plugins_per_page, plugins_last_view, ID
- * 
- * Then there's the additional fields added by tools such as WP-member: dob, sex, FBconnect, Twitterconnect ... which are managed by what? **?**
  *
  * @param string $field field name to map
  * @return string mapped field name 
  */
 function oiku_map_field( $field ) {
-  static $fields = array( "bio" => "description" 
-                        , "name" => "display_name"
-                        , "forename" => "first_name"
-                        , "surname" => "last_name"
-                        , "site" => "url"
-												, "nickname" => "nicename" 
-                        );
-  $name = bw_array_get( $fields, $field, $field );
-  oiku_register_field( $name ); 
+  $name = oiku_get_field_name( $field );
+	$type = oiku_get_field_type( $name );
+	$label = oiku_get_field_label( $field );
+	if ( $type || $label ) {
+		oiku_register_field( $name, $type, $label ); 
+	}	
   return( $name );
 }
 
 /**
- * Register a field if the name matches
+ * Get the field name
+ * 
+ * Given a field name used in the shortcode return the actual field name required for get_the_author_meta()
+ * 
+ * Note: We don't need to prefix some fields with user_ as get_the_author_meta() will do that for us.
+ * 
  *
- * @param string $name 
- * @param string $field
- * @param string $type
- * @param string $title
+ * @param string $field the field name used in the shortcode
+ * @return string the name of the field it maps to 
  */
-function bw_mayberegister_field( $name, $field, $type, $title ) {
-  if ( $name == $field ) {
-    bw_register_field( $field, $type, $title );
-  }
+function oiku_get_field_name( $field ) {
+	static $fields = array( "bio" => "description"
+												, "name" => "display_name"
+												, "about" => "display_name" 
+												, "forename" => "first_name"
+												, "surname" => "last_name"
+												, "site" => "url"
+												);
+	$name = bw_array_get( $fields, $field, $field );
+	return( $name );
 }
+
+/**
+ * Get the field type
+ *
+ * Returns the field type to register if it's not just 'text'
+ *
+ */
+function oiku_get_field_type( $name ) {
+	static $types = array( "description" => "sctext" 
+	                     , "url" => "url"
+											 , "email" => "email"
+                       );
+	$type = bw_array_get( $types, $name, null );
+	return( $type );
+}
+
+/**
+ * Get the field label
+ *
+ * Note: For backward compatibility, we retain the original labels for the default field names of the bw_user shortcode; name, bio and email.
+ *
+ * If you want to use bw_user for an author-box use `[bw_user fields="gravatar,about,bio" class="author-box"]`
+ * then use CSS to hide the labels and separators for `gravatar` and `bio` , but not for `about` .
+ * 
+ * @param string $field the field name
+ * @return string the label/title for the field
+ */
+function oiku_get_field_label( $field ) {	
+	$labels = array( "name" => __( "User name" , "oik-user" )
+								 , "about" => __( "About", "oik-user" )
+								 , "bio" => __( "Description", "oik-user" )
+								 , "email" => __( "Email", "oik-user" )
+								 , "url" => __( "Website", "oik-user" )
+								 );
+	$label = bw_array_get( $labels, $field, null ); 
+	return( $label );
+}																					
 
 /**
  * Register a field named $name
@@ -56,12 +89,12 @@ function bw_mayberegister_field( $name, $field, $type, $title ) {
  * e.g. Create an email link for an email address, a link for an URL.
  * 
  * @param string $name 
+ * @param string $type
+ * @param string $label
  */  
-function oiku_register_field( $name ) {
-  bw_mayberegister_field( $name, "display_name", "text", "User name" );
-  bw_mayberegister_field( $name, "description", "sctext", "Description" );
-  bw_mayberegister_field( $name, "email", "email", "Email" );
-  bw_mayberegister_field( $name, "url", "URL", "Website" );
+function oiku_register_field( $name, $type, $label ) {
+	bw_trace2();
+	bw_register_field( $name, $type, $label );
 }
 
 /**
@@ -71,7 +104,7 @@ function oiku_register_field( $name ) {
  * @param array $atts - array of name value pairs
  */
 function oiku_format_fields( $user, $atts ) {  
-  $fields = bw_array_get( $atts, "fields", "name,bio,email" );
+  $fields = bw_array_get_from( $atts, "fields,0", "name,bio,email" );
   if ( $fields ) {
     $field_arr = explode( ",", $fields ); 
     $field_arr = bw_assoc( $field_arr );
@@ -103,11 +136,17 @@ function oiku_format_fields( $user, $atts ) {
  * @return string generated HTML
  */
 function oiku_user( $atts=null, $content=null, $tag=null ) {
-  $id = bw_array_get_dcb( $atts, "user", false, "bw_default_user", null );
-  // e( "Current id is: $id " );
-  $user = bw_get_user( $id );
-	
-  if ( $user ) {
+	$id = bw_default_user( false );
+	$user_id = bw_array_get_dcb( $atts, "user", null );
+	if ( $user_id ) {
+		$user = bw_get_user( $user_id );
+	} else {
+		$user = bw_get_user( $id );
+	}
+	if ( $user ) {
+		if ( $user_id ) {
+			oiku_fiddle_user_in_global_post( $user->ID );
+		}
 		//bw_trace2( $user, "user" );
 		$class = bw_array_get( $atts, "class", null );
 		if ( $class ) {
@@ -120,12 +159,40 @@ function oiku_user( $atts=null, $content=null, $tag=null ) {
 		if ( $class ) {
 			ediv( $class );
 		}
-  } else {
-    bw_trace2( $id, "User not found" );
-    //e( "User not found: $id " );
-  }
-  return( bw_ret() );
+
+		if ( $user_id ) {
+			oiku_fiddle_user_in_global_post( null );
+		}
+	} else {
+		bw_trace2( $id, "User not found" );
+		//e( "User not found: $id " );
+	}
+	return( bw_ret() );
 }
+
+/**
+ * Fiddle the author of the global post
+ * 
+ * We want the user of the bw_user shortcode to be used for all nested shortcodes
+ * This logic doesn't support nested changes of user.
+ * 
+ * @param $user_id - the ID of the user we've chosen, or 0 to reset
+ */
+
+function oiku_fiddle_user_in_global_post( $user_id ) {
+	$post = bw_global_post();
+	if ( $post ) {
+		if ( $user_id ) {
+			$post->saved_author = $post->post_author;
+			$post->post_author = $user_id;
+		} else {
+			if ( isset( $post->saved_author ) ) {
+				$post->post_author = $post->saved_author;
+			}
+			unset( $post->saved_author );
+		}
+	}	
+}	
 
 /**
  * Implement help hook for [bw_user]
@@ -136,58 +203,108 @@ function bw_user__help( $shortcode="bw_user" ) {
 
 /** 
  * Get field list
+ *
+ * - The list of possible fields is infinite.
+ * - Any plugin or theme can register its own fields stored in wp_usermeta
+ * - Some plugins store serialized data.
+ * - WordPress supports a variety of aliases
+ * - And we've added a couple more, primarily so that we can use different labels
+ * - but also to make it easier to choose the fields
  * 
- * Fields are Registered? if they're of interest 
- * and can be displayed nicely with a sensible label.
- * Fields with '-' for Registered are not included in the list of fields in the shortcode help.
+ * 
+ * Note: Fields are marked as Registered? if they need to be displayed as other than 'text', or prefixed nicely with a sensible label.
  * 
  * Note: The label and separator can be styled using CSS
- * To display an author-box a few of the labels are set to display no.
-* 
- 
+ * To display an author-box a few of the labels and separators are set to display:no.
+ * 
+ * 
+ * Field name | Alias of | Registered?
+ * ----------- | --------- | -----
+ * about | display_name | -
+ * bio | description | sctext
+ * description | user_description | sctext
+ * display_name | | - 
+ * email | user_email | email
+ * first_name | | -
+ * forename | first_name | -
+ * gravatar | | virtual 
+ * ID | user_id | -
+ * last_name | | -
+ * login | user_login | 
+ * name | display_name |
+ * nicename | user_nicename | -
+ * nickname | | -
+ * site | url | URL
+ * surname | last_name | -
+ * url | user_url | URL
+ * 
+ * Notes: 
+ * - nicename ( an alias for user_nicename ) is not the same as nickname.
+ * - nicename is a sanitized version of login.
+ * - nickname is something the user can choose for themselves
+ *
+ * 
+ * Fields that are better handled using shortcodes in the embedded content include:
+ * 
+ * Field name | Alias of 
+ * ----------- | --------- 
+ * facebook | 
+ * flickr | 
+ * googleplus |  
+ * twitter | 
+ * 
+ * Fields you probably won't want to display to users who are not logged in
+ * 
+ * Field Name | Alias of
+ * ---------- | --------
+ * activation_key | user_activation_key 
+ * admin_color | 
+ * aim | 
+ * comment_shortcuts | 
+ * dismissed_wp_pointers | 
+ * jabber | 
+ * user_level | 
+ * pass | user_pass
+ * plugins_last_view |
+ * plugins_per_page |
+ * registered | user_registered | 
+ * rich_editing | 
+ * show_admin_bar_front | 
+ * status | user_status 
+ * use_ssl | 
+ * wp_capabilities 
+ * yim | 
+ * 
+ * Note: If you want to display these you may want to implement a 'get_the_author_$field_name' filter hook
+ * 
+ * Fields which are provided for backward compatibility
+ *
+ * Field Name | Alias of 
+ * ---------- | -------- 
+ * user_level | $wpdb_prefix . "user_level" | 
+ * user_firstname| first_name 
+ * user_lastname | last_name 
+ * user_description | description
+	* 
+ * @link http://codex.wordpress.org/Function_Reference/the_author_meta 
+ * 
  * User fields according to above link include: 
  *
- * user_login | 
- * user_pass |
- * user_nicename | 
- * user_email | 
- * user_url | 
- * user_registered | 
- * user_activation_key |
- * user_status | 
- 
- display_name, nickname, first_name, last_name,  
+ *  user_login, user_pass, user_nicename, user_email, user_url, user_registered, user_activation_key,
+ *  user_status, display_name, nickname, first_name, last_name, description, jabber, aim, yim
  *  user_level, user_firstname, user_lastname, user_description, rich_editing, comment_shortcuts,
- *   plugins_per_page, plugins_last_view, ID
+ *  admin_color, plugins_per_page, plugins_last_view, ID
  * 
- * Registered? | Field  	 | Alias
- * --------    | --------- | -----
- * virtual     | gravatar 
- * -           | admin_color 
- * -           | aim | 
- * -           | comment_shortcuts 
- * sctext      | description | bio
- * -           | facebook |  
- * -           | dismissed_wp_pointers 
- * text |  first_name | forename
- * - | googleplus
- * - | jabber
- * text | last_name | surname
- * text | nickname | nicename
- * - | rich_editing
- * - | show_admin_bar_front
- * - | twitter
- * - | use_ssl
- * - | wp_capabilities
- * - | wp_user_level
- * - | wpseo_*
- * - | yim
- * - | billing_address_1
- * - | billing_address_2
- *
+ * Then there's the additional fields added by tools such as WP-member: dob, sex, FBconnect, Twitterconnect
+ * and fields from other plugins: 
+ * - billing_address_*
+ * - bw_options
+ * - genesis_*
+ * - wpseo_*
+ * 
  */
 function bw_user_field_list() {
-	$field_list = "gravatar|description|forename|surname|nickname|display_name|login";
+	$field_list = "about|bio|description|display_name|email|first_name|forename|gravatar|ID|last_name|login|name|nicename|nickname|site|surname|url";
 	return( $field_list );
 }
 
