@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013,2014
+<?php // (C) Copyright Bobbing Wide 2013-2017
 
 /**
  * Implements "oik_admin_menu" action for oik-user
@@ -233,6 +233,7 @@ function oiku_user_contactmethods( $contact_methods ) {
   $contact_methods = oiku_user_contactmethod( $contact_methods, "instagram", "Instagram URL"," [bw_instagram]" );
   $contact_methods = oiku_user_contactmethod( $contact_methods, "skype", "Skype"," [bw_skype]" );
   $contact_methods = oiku_user_contactmethod( $contact_methods, "github", "GitHub"," " );
+  $contact_methods = oiku_user_contactmethod( $contact_methods, "wordpress", "WordPress.org"," " );
   return( $contact_methods ); 
 }
 
