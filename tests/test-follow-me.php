@@ -38,7 +38,7 @@ class Tests_follow_me extends BW_UnitTestCase {
 			bw_update_user_meta( 1, "github", "dummy" );
 		}
 		$html = bw_follow( array( "network" => "github", "user" => 1 ) );
-		$this->assertStringStartsWith( '<a href="https://github.com/' . $value, $html );
+		$this->assertStringStartsWith( '<a class=" bw_follow_new" href="https://github.com/' . $value, $html );
 	}
 
 	/**
@@ -55,7 +55,7 @@ class Tests_follow_me extends BW_UnitTestCase {
 			bw_update_user_meta( 1, "wordpress", "dummy" );
 		}
 		$html = bw_follow( array( "network" => "wordpress", "user" => 1 ) );
-		$this->assertStringStartsWith( '<a href="https://profiles.wordpress.org/' . $value, $html );
+		$this->assertStringStartsWith( '<a class=" bw_follow_new" href="https://profiles.wordpress.org/' . $value, $html );
 	}
 
 }

@@ -1,10 +1,10 @@
 === oik user shortcodes ===
 Contributors: bobbingwide
-Donate link: http://www.oik-plugins.com/oik/oik-donate/
+Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, smart, lazy
 Requires at least: 4.2
-Tested up to: 4.7
-Stable tag: 0.6.0
+Tested up to: 4.9-beta3
+Stable tag: 0.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,8 @@ Other fields you can choose to display are:
 * flickr - Flickr account
 * picasa - picasa account
 * skype - Skype account
+* github - GitHub account
+* wordpress - WordPress.org profile
 * and any other field that may have been defined by plugins such as WP-Members
 
 For the [bw_user] shortcode the user is specified using the user= parameter.  
@@ -79,7 +81,7 @@ Note: This plugin can be used in addition to the oik third contact plugin.
 
 == Frequently Asked Questions ==
 = Where is the FAQ? =
-[oik FAQ](http://www.oik-plugins.com/oik/oik-faq)
+[oik FAQ](https://www.oik-plugins.com/oik/oik-faq)
 
 == Screenshots ==
 1. User - contact info fields
@@ -88,6 +90,9 @@ Note: This plugin can be used in addition to the oik third contact plugin.
 4. [bw_users] in action 
 
 == Upgrade Notice ==
+= 0.6.1 = 
+Upgrade to support display of GitHub and WordPress follow me links
+
 = 0.6.0 = 
 Tested with WordPress 4.7. Depends on oik v3.1 and oik-fields v1.40.4
 
@@ -128,6 +133,10 @@ Dependent upon oik v2.0-alpha.0322
 oik-user is dependent upon oik base plugin v2.0-alpha
 
 == Changelog ==
+= 0.6.1 =
+* Added: GitHub and WordPress.org contact method displayed by [bw_follow_me] [github bobbingwide oik-user issues 5] 
+* Tested: with WordPress 4.8.2 and 4.9-beta3
+
 = 0.6.0 = 
 * Added: Add gravatar virtual field and author-box styling [github bobbingwide oik-user issue 3]
 * Added: GitHub contact method
