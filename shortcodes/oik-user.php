@@ -145,7 +145,7 @@ function oiku_format_fields( $user, $atts ) {
  */
 function oiku_user( $atts=null, $content=null, $tag=null ) {
 	//bw_trace2();
-	oiku_atts( $atts );
+
 	$id = bw_default_user( false );
 	$user_id = bw_array_get( $atts, "user", null );
 	$user_id = trim( $user_id );
@@ -155,6 +155,8 @@ function oiku_user( $atts=null, $content=null, $tag=null ) {
 		$user = bw_get_user( $id );
 	}
 	if ( $user ) {
+		$atts['user'] = $user->ID;
+		oiku_atts( $atts );
 		if ( $user_id ) {
 			oiku_fiddle_user_in_global_post( $user->ID );
 		}
