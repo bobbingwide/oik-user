@@ -144,9 +144,11 @@ function oiku_format_fields( $user, $atts ) {
  * @return string generated HTML
  */
 function oiku_user( $atts=null, $content=null, $tag=null ) {
+	//bw_trace2();
 	oiku_atts( $atts );
 	$id = bw_default_user( false );
-	$user_id = bw_array_get_dcb( $atts, "user", null );
+	$user_id = bw_array_get( $atts, "user", null );
+	$user_id = trim( $user_id );
 	if ( $user_id ) {
 		$user = bw_get_user( $user_id );
 	} else {
@@ -161,7 +163,7 @@ function oiku_user( $atts=null, $content=null, $tag=null ) {
 		if ( $class ) {
 			sdiv( $class );
 		}
-    oiku_format_fields( $user->ID, $atts );
+        oiku_format_fields( $user->ID, $atts );
 		if ( $content ) {
 			e( bw_do_shortcode( $content ));
 		}
