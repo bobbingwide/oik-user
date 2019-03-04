@@ -1,10 +1,10 @@
-<?php // (C) Copyright Bobbing Wide 2013-2016
+<?php // (C) Copyright Bobbing Wide 2013-2019
 
 /**
  * Register the user field if required
  * 
  * Find the most appropriate field name given the field name that the user typed
- * determine it's field type ( if not text ) and the suggested label
+ * determine its field type ( if not text ) and the suggested label
  * and register the field if it's necessary.
  *
  *
@@ -65,7 +65,7 @@ function oiku_get_field_type( $name ) {
  * Note: For backward compatibility, we retain the original labels for the default field names of the bw_user shortcode; name, bio and email.
  *
  * If you want to use bw_user for an author-box use `[bw_user fields="gravatar,about,bio" class="author-box"]`
- * then use CSS to hide the labels and separators for `gravatar` and `bio` , but not for `about` .
+ * then use CSS to hide the labels and separators for `gravatar` and `bio` , and maybe not for `about` .
  * 
  * @param string $field the field name
  * @return string the label/title for the field
@@ -105,20 +105,28 @@ function oiku_register_field( $name, $type, $label ) {
  */
 function oiku_format_fields( $user, $atts ) {  
   $fields = bw_array_get_from( $atts, "fields,0", "name,bio,email" );
-  if ( $fields ) {
-    $field_arr = explode( ",", $fields ); 
-    $field_arr = bw_assoc( $field_arr );
-    //bw_trace2( $field_arr, "field_arr", false );
-    foreach ( $field_arr as $field ) {
-      $name = oiku_map_field( $field );
-      //e( $name );
-      $user_meta = get_the_author_meta( $name, $user );
-      //e ( "User meta: $user_meta!" );
-      $customfields = array( $name => $user_meta ); 
-      sdiv( $name );
-      //bw_backtrace();
-      bw_format_meta( $customfields );
-      ediv( $name );
+  $field_divs = explode( "/", $fields );
+  if ( count( $field_divs )) {
+    foreach ( $field_divs as $key => $fields ) {
+    	$field_classes = str_replace( ",", "-", $fields );
+  	    sdiv( "bw_user-fields-$key $field_classes");
+        if ( $fields ) {
+	        $field_arr = explode( ",", $fields );
+	        $field_arr = bw_assoc( $field_arr );
+	        //bw_trace2( $field_arr, "field_arr", false );
+	        foreach ( $field_arr as $field ) {
+		        $name = oiku_map_field( $field );
+		        //e( $name );
+		        $user_meta = get_the_author_meta( $name, $user );
+		        //e ( "User meta: $user_meta!" );
+		        $customfields = array( $name => $user_meta );
+		        sdiv( $name );
+		        //bw_backtrace();
+		        bw_format_meta( $customfields );
+		        ediv( $name );
+	        }
+        }
+	    ediv();
     }
   } else { 
     p( "Invalid fields= parameter for bw_user shortcode" );
@@ -136,6 +144,7 @@ function oiku_format_fields( $user, $atts ) {
  * @return string generated HTML
  */
 function oiku_user( $atts=null, $content=null, $tag=null ) {
+	oiku_atts( $atts );
 	$id = bw_default_user( false );
 	$user_id = bw_array_get_dcb( $atts, "user", null );
 	if ( $user_id ) {
@@ -462,6 +471,14 @@ function oiku_users( $atts=null, $content=null, $tag=null ) {
     etag( "table" );
   }  
   return( bw_ret() );
+}
+
+function oiku_atts( $atts=null ) {
+	static $saved_atts = [];
+	if ( null !== $atts ) {
+		$saved_atts = $atts;
+	}
+	return $saved_atts;
 }
 
 /**

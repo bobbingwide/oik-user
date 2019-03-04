@@ -55,3 +55,20 @@ function oiku_get_gravatar( $parms ) {
 	return( $gravatar );
 }
 
+/**
+ * Returns the value of the virtual field follow_me
+ *
+ * Displays the follow me social links for the given user.
+ * The parameters to bw_follow_me are passed through the $atts array
+ *
+ * @param $parms - post ID of the post being displayed
+ * @return string
+ */
+function oiku_get_follow_me( $parms ) {
+	oik_require( "shortcodes/oik-follow.php");
+	$atts = oiku_atts();
+	bw_push();
+	$follow_me = bw_follow_me( $atts );
+	bw_pop();
+	return $follow_me;
+}

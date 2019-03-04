@@ -3,7 +3,7 @@
 Plugin Name: oik user
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik-user
 Description: oik lazy smart shortcodes by user ID/name
-Version: 0.6.1
+Version: 0.7.0
 Author: bobbingwide
 Author URI: https://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik-user
@@ -11,7 +11,7 @@ Domain Path: /languages/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-    Copyright 2013-2017 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2013-2019 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -214,11 +214,21 @@ function oiku_oik_fields_loaded() {
 	$field_args = array( "#callback" => "oiku_get_gravatar"
 										 , "#parms" => "" 
 										 , "#plugin" => "oik-user"
-										 , "#file" => "includes/oik-user.php"
+										 , "#file" => "includes/oik-user.inc"
 										 , "#form" => false
 										 , "#hint" => "virtual field"
 										 ); 
 	bw_register_field( "gravatar", "virtual", "Gravatar", $field_args );
+
+	$field_args = array( "#callback" => "oiku_get_follow_me"
+	, "#parms" => ""
+	, "#plugin" => "oik-user"
+	, "#file" => "includes/oik-user.inc"
+	, "#form" => false
+	, "#hint" => "virtual field"
+	);
+	bw_register_field( "follow_me", "virtual", "Follow me", $field_args );
+
 }
 
 /**
