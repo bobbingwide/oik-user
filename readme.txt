@@ -2,9 +2,9 @@
 Contributors: bobbingwide
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, smart, lazy
-Requires at least: 4.2
-Tested up to: 4.9-beta3
-Stable tag: 0.6.1
+Requires at least: 4.9.8
+Tested up to: 5.1.1
+Stable tag: 0.7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,7 +27,7 @@ Other fields you can choose to display are:
 * yim - Yahoo IM   - depends on when WordPress was initially installed
 * jabber - Jabber / Google Talk - depends on when WordPress was initially installed
 
-* googleplus - Google+ 
+* googleplus - Google+ - deprecated by Google in April 2019
 * twitter - Twitter account
 * facebook - Facebook account
 * linkedin - LinkedIn account
@@ -90,6 +90,9 @@ Note: This plugin can be used in addition to the oik third contact plugin.
 4. [bw_users] in action 
 
 == Upgrade Notice ==
+= 0.7.0 = 
+Upgrade for use with the Person block, from oik-blocks.
+
 = 0.6.1 = 
 Upgrade to support display of GitHub and WordPress follow me links
 
@@ -133,6 +136,14 @@ Dependent upon oik v2.0-alpha.0322
 oik-user is dependent upon oik base plugin v2.0-alpha
 
 == Changelog ==
+= 0.7.0 = 
+* Changed: Enable the follow_me virtual field access to the author's user ID when user='', [github bobbingwide oik-user issue 3]
+* Fixed: Trim the user parameter when the post's author is needed,[github bobbingwide oik-user issue 3]
+* Added: Update bw_user to display gravatar, with author-box style,[github bobbingwide oik-user issue 3]
+* Tested: With WordPress 5.1.1 and WordPress Multisite
+* Tested: With PHP 7.2
+* Tested: With Gutenberg 5.4
+
 = 0.6.1 =
 * Added: GitHub and WordPress.org contact method displayed by [bw_follow_me] [github bobbingwide oik-user issues 5] 
 * Tested: with WordPress 4.8.2 and 4.9-beta3

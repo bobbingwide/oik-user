@@ -1,0 +1,338 @@
+# Copyright (C) 2019 oik user
+# This file is distributed under the same license as the oik user package.
+msgid ""
+msgstr ""
+"Project-Id-Version: oik user 0.7.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/oik-user\n"
+"POT-Creation-Date: 2019-04-15 08:38:58+00:00\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"Language: bb_BB\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+#: admin/oik-activation.php:23
+msgid "Install %1$s"
+msgstr "Isnatll %1$s"
+
+
+#: admin/oik-activation.php:55
+msgid "Activate %1$s"
+msgstr "Atcvitae %1$s"
+
+
+#: admin/oik-activation.php:73
+msgid "Upgrade %1$s"
+msgstr "Ugparde %1$s"
+
+
+#: admin/oik-activation.php:189
+msgid " version "
+msgstr " vreison "
+
+
+#: admin/oik-activation.php:191
+msgid "%1$s may not be fully functional."
+msgstr "%1$s mAy nOt bE fluly fnutcoianl."
+
+
+#: admin/oik-activation.php:193
+msgid ""
+"Please install and activate the required minimum version of this plugin: %1$s"
+msgstr ""
+"Pelsae isnatll And atcvitae thE rqeiuerd mnimium vreison Of tihs pulign: %1$s"
+
+
+#: admin/oik-user.php:23
+msgid "oik user admin"
+msgstr "OIk uesr amdin"
+
+
+#: admin/oik-user.php:54
+msgid "user admin"
+msgstr "uesr amdin"
+
+
+#: admin/oik-user.php:55
+msgid "Check <b>Contact Info</b> fields to display on User Profile"
+msgstr "Cehck <b>Contact Info</b> feidls tO dsilpay On Uesr Porifle"
+
+
+#: admin/oik-user.php:56
+msgid "Check hooks to run for the 'show_user_profile' action"
+msgstr "Cehck hooks tO rUn fOr thE 'sohw_uesr_porifle' atcoin"
+
+
+#: admin/oik-user.php:169
+msgid ""
+"This table lists the action hooks that plugins have registered to be run "
+"when displaying the user profile"
+msgstr ""
+"Tihs tbale lsits thE atcoin hooks taht puligns hvae rgesieterd tO bE rUn "
+"wehn dsilpyanig thE uesr porifle"
+
+
+#: admin/oik-user.php:170
+msgid ""
+"Uncheck the action hooks that you do not want to have run, then click on "
+"Update."
+msgstr ""
+"Ucnehck thE atcoin hooks taht yOU dO nOt wnat tO hvae rUn, tehn cilck On "
+"Udptae."
+
+
+#: admin/oik-user.php:383
+msgid "oik user options"
+msgstr "OIk uesr otpoins"
+
+
+#: admin/oik-user.php:396
+msgid "Street-address"
+msgstr "Srteet-adderss"
+
+
+#: admin/oik-user.php:397
+msgid "Locality"
+msgstr "Lcolatiy"
+
+
+#: admin/oik-user.php:398
+msgid "Region"
+msgstr "Rgeoin"
+
+
+#: admin/oik-user.php:399
+msgid "Post Code"
+msgstr "Psot Cdoe"
+
+
+#: admin/oik-user.php:400
+msgid "Country name"
+msgstr "Cuotnry nmae"
+
+
+#: admin/oik-user.php:404
+msgid "'Howdy,' replacement string"
+msgstr "'Hwody,' rpealecemnt srtnig"
+
+
+#: admin/oik-user.php:480
+msgid "oik user settings"
+msgstr "OIk uesr steitgns"
+
+
+#: admin/oik-user.php:488
+msgid "Use this form to copy oik options values to a user of your choice."
+msgstr "UsE tihs from tO cpoy OIk otpoins vlaeus tO A uesr Of yuor cohcie."
+
+
+#: admin/oik-user.php:489
+msgid "You should only need to do this once per user"
+msgstr "YOU sohlud olny need tO dO tihs ocne pEr uesr"
+
+
+#: admin/oik-user.php:516
+msgid "Please choose source and target"
+msgstr "Pelsae cohsoe suocre And traegt"
+
+
+#: oik-user.php:138
+msgid "Invalid %s"
+msgstr "Ivnlaid %s"
+
+
+#: oik-user.php:151
+msgid "User"
+msgstr "Uesr"
+
+
+#: oik-user.php:180
+msgid "Howdy, %1$s"
+msgstr "Hwody, %1$s"
+
+
+#: oik-user.php:205
+msgid "Optional"
+msgstr "Otpoianl"
+
+
+#: oik-user.php:221
+msgid "Gravatar"
+msgstr "Garavatr"
+
+
+#: oik-user.php:230
+msgid "Follow me"
+msgstr "Floolw mE"
+
+
+#: shortcodes/oik-contact-user.php:13
+msgid "id"
+msgstr "Id"
+
+
+#: shortcodes/oik-contact-user.php:37
+msgid "Contact %s"
+msgstr "Cnoatct %s"
+
+
+#: shortcodes/oik-contact-user.php:41
+msgid "Name *"
+msgstr "Nmae *"
+
+
+#: shortcodes/oik-contact-user.php:42
+msgid "Email *"
+msgstr "Eamil *"
+
+
+#: shortcodes/oik-contact-user.php:43
+msgid "Subject"
+msgstr "Sbuejct"
+
+
+#: shortcodes/oik-contact-user.php:44
+msgid "Message"
+msgstr "Mseasge"
+
+
+#: shortcodes/oik-contact-user.php:172 shortcodes/oik-contact-user.php:177
+msgid "Thank you for your submission."
+msgstr "Tahnk yOU fOr yuor sbuimssoin."
+
+
+#: shortcodes/oik-contact-user.php:174
+msgid "Thank you for your submission. Something went wrong. Please try again."
+msgstr "Tahnk yOU fOr yuor sbuimssoin. Smoteihng wnet worng. Pelsae try aagin."
+
+
+#: shortcodes/oik-contact-user.php:211
+msgid "Invalid. Please corrrect and retry."
+msgstr "Ivnlaid. Pelsae crorrcet And rtery."
+
+
+#: shortcodes/oik-contact-user.php:241 shortcodes/oik-user.php:332
+msgid "Value to identify the user"
+msgstr "Vlaue tO iedtnfiy thE uesr"
+
+
+#: shortcodes/oik-contact-user.php:242
+msgid "Name of the contact form plugin"
+msgstr "Nmae Of thE cnoatct from pulign"
+
+
+#: shortcodes/oik-contact-user.php:268
+msgid ""
+"Note: If the form is submitted from Shortcode help then two emails would be "
+"sent."
+msgstr ""
+"Ntoe: If thE from Is sbuimtted form Sohtrocde hlep tehn twO eamlis wuold bE "
+"snet."
+
+
+#: shortcodes/oik-contact-user.php:269
+msgid "So the normal snippet code is not invoked in this case."
+msgstr "SO thE nroaml sinppet cdoe Is nOt ivnkoed In tihs csae."
+
+
+#: shortcodes/oik-user.php:74
+msgid "User name"
+msgstr "Uesr nmae"
+
+
+#: shortcodes/oik-user.php:75
+msgid "About"
+msgstr "Aobut"
+
+
+#: shortcodes/oik-user.php:76
+msgid "Description"
+msgstr "Dsercpiiton"
+
+
+#: shortcodes/oik-user.php:77
+msgid "Email"
+msgstr "Eamil"
+
+
+#: shortcodes/oik-user.php:78
+msgid "Website"
+msgstr "Wbeiste"
+
+
+#: shortcodes/oik-user.php:132 shortcodes/oik-user.php:424
+msgid "Invalid fields= parameter for bw_user shortcode"
+msgstr "Ivnlaid fields= pramateer fOr bw_uesr sohtrocde"
+
+
+#: shortcodes/oik-user.php:333
+msgid "Comma separated list of fields"
+msgstr "Cmoma sperataed lsit Of feidls"
+
+
+#: shortcodes/oik-user.php:520
+msgid "User role"
+msgstr "Uesr rloe"
+
+
+#: shortcodes/oik-user.php:521
+msgid "Order by"
+msgstr "Odrer by"
+
+
+#: shortcodes/oik-user.php:522
+msgid "Ascending or Descending sequence"
+msgstr "Acsneidng Or Dseecdnnig sqeeucne"
+
+
+#: shortcodes/oik-user.php:523
+msgid "Meta field name"
+msgstr "Mtea feild nmae"
+
+
+#: shortcodes/oik-user.php:524
+msgid "Meta field value"
+msgstr "Mtea feild vlaue"
+
+
+#: shortcodes/oik-user.php:525 shortcodes/oik-user.php:526
+msgid "Operator to test the meta value"
+msgstr "Oeparotr tO tset thE mtea vlaue"
+
+
+#: shortcodes/oik-user.php:527
+msgid "IDs to include"
+msgstr "IDs tO icnulde"
+
+
+#: shortcodes/oik-user.php:528
+msgid "IDs to exclude"
+msgstr "IDs tO ecxulde"
+
+
+#. Plugin Name of the plugin/theme
+msgid "oik user"
+msgstr "OIk uesr"
+
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.oik-plugins.com/oik-plugins/oik-user"
+msgstr "https://www.oik-plugins.com/oik-plugins/oik-user"
+
+
+#. Description of the plugin/theme
+msgid "oik lazy smart shortcodes by user ID/name"
+msgstr "OIk lzay samrt sohtroceds by uesr ID/nmae"
+
+
+#. Author of the plugin/theme
+msgid "bobbingwide"
+msgstr "bboibgniwde"
+
+
+#. Author URI of the plugin/theme
+msgid "https://www.oik-plugins.com/author/bobbingwide"
+msgstr "https://www.oik-plugins.com/author/bobbingwide"
+

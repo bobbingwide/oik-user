@@ -104,7 +104,7 @@ function oiku_register_field( $name, $type, $label ) {
  * @param array $atts - array of name value pairs
  */
 function oiku_format_fields( $user, $atts ) {  
-  $fields = bw_array_get_from( $atts, "fields,0", "name,bio,email" );
+  $fields = bw_array_get_from( $atts, "fields,0", "/name,bio,email" );
   $field_divs = explode( "/", $fields );
   if ( count( $field_divs )) {
     foreach ( $field_divs as $key => $fields ) {
