@@ -10,9 +10,30 @@
  * @param array $args
  */
 function bw_form_field_userref( $name, $type, $title, $value, $args ) {
-		$userlist = bw_user_list();
-		$args['#options'] = $userlist;
-		bw_select( $name, $title, $value, $args );
+	$users = bw_get_users( array( "number" => "", 'orderby' => 'name' ) ) ;
+	$userlist = bw_form_field_userref_options( $users );
+	$args['#options'] = $userlist;
+	bw_select( $name, $title, $value, $args );
+}
+
+/**
+ * Builds a user options array.
+ *
+ * This is different from bw_user_array(), which only shows the display name.
+ * Since users can have multiple roles they are all shown.
+ * This will not uniquely identify users who have the same name eg John Smith.
+ *
+ * @param array $user - array of user objects
+ * @return array - associative array of user ID to  and roles
+ */
+function bw_form_field_userref_options( $users )  {
+	$options = array();
+	foreach ($users as $user ) {
+		$roles = implode( ',', $user->roles );
+		$options[$user->ID] = $user->display_name . ' ( ' . $roles . ' )';
+	}
+	//bw_trace2( $options );
+	return $options;
 }
 
 /**
