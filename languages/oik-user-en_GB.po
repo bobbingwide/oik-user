@@ -1,39 +1,39 @@
-# Copyright (C) 2019 oik user
+# Copyright (C) 2020 oik user
 # This file is distributed under the same license as the oik user package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik user 0.7.0\n"
+"Project-Id-Version: oik user 0.8.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik-user\n"
-"POT-Creation-Date: 2019-04-15 08:38:58+00:00\n"
+"POT-Creation-Date: 2020-12-29 16:46:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-#: admin/oik-activation.php:23
+#: admin/oik-activation.php:29
 msgid "Install %1$s"
 msgstr "Install %1$s"
 
-#: admin/oik-activation.php:55
+#: admin/oik-activation.php:61
 msgid "Activate %1$s"
 msgstr "Activate %1$s"
 
-#: admin/oik-activation.php:73
+#: admin/oik-activation.php:79
 msgid "Upgrade %1$s"
 msgstr "Upgrade %1$s"
 
-#: admin/oik-activation.php:189
-msgid " version "
-msgstr " version "
+#: admin/oik-activation.php:195
+msgid "version"
+msgstr "version"
 
-#: admin/oik-activation.php:191
+#: admin/oik-activation.php:197
 msgid "%1$s may not be fully functional."
 msgstr "%1$s may not be fully functional."
 
-#: admin/oik-activation.php:193
+#: admin/oik-activation.php:199
 msgid ""
 "Please install and activate the required minimum version of this plugin: %1$s"
 msgstr "Please install and activate the required minimum version of this plugin: %1$s"
@@ -134,57 +134,57 @@ msgstr "Gravatar"
 msgid "Follow me"
 msgstr "Follow me"
 
-#: shortcodes/oik-contact-user.php:13
+#: shortcodes/oik-contact-user.php:14
 msgid "id"
 msgstr "id"
 
-#: shortcodes/oik-contact-user.php:37
+#: shortcodes/oik-contact-user.php:38
 msgid "Contact %s"
 msgstr "Contact %s"
 
-#: shortcodes/oik-contact-user.php:41
+#: shortcodes/oik-contact-user.php:42
 msgid "Name *"
 msgstr "Name *"
 
-#: shortcodes/oik-contact-user.php:42
+#: shortcodes/oik-contact-user.php:43
 msgid "Email *"
 msgstr "Email *"
 
-#: shortcodes/oik-contact-user.php:43
+#: shortcodes/oik-contact-user.php:44
 msgid "Subject"
 msgstr "Subject"
 
-#: shortcodes/oik-contact-user.php:44
+#: shortcodes/oik-contact-user.php:45
 msgid "Message"
 msgstr "Message"
 
-#: shortcodes/oik-contact-user.php:172 shortcodes/oik-contact-user.php:177
+#: shortcodes/oik-contact-user.php:173 shortcodes/oik-contact-user.php:178
 msgid "Thank you for your submission."
 msgstr "Thank you for your submission."
 
-#: shortcodes/oik-contact-user.php:174
+#: shortcodes/oik-contact-user.php:175
 msgid "Thank you for your submission. Something went wrong. Please try again."
 msgstr "Thank you for your submission. Something went wrong. Please try again."
 
-#: shortcodes/oik-contact-user.php:211
+#: shortcodes/oik-contact-user.php:212
 msgid "Invalid. Please corrrect and retry."
 msgstr "Invalid. Please corrrect and retry."
 
-#: shortcodes/oik-contact-user.php:241 shortcodes/oik-user.php:332
+#: shortcodes/oik-contact-user.php:242 shortcodes/oik-user.php:332
 msgid "Value to identify the user"
 msgstr "Value to identify the user"
 
-#: shortcodes/oik-contact-user.php:242
+#: shortcodes/oik-contact-user.php:243
 msgid "Name of the contact form plugin"
 msgstr "Name of the contact form plugin"
 
-#: shortcodes/oik-contact-user.php:268
+#: shortcodes/oik-contact-user.php:269
 msgid ""
 "Note: If the form is submitted from Shortcode help then two emails would be "
 "sent."
 msgstr "Note: If the form is submitted from Shortcode help then two emails would be sent."
 
-#: shortcodes/oik-contact-user.php:269
+#: shortcodes/oik-contact-user.php:270
 msgid "So the normal snippet code is not invoked in this case."
 msgstr "So the normal snippet code is not invoked in this case."
 
@@ -248,23 +248,18 @@ msgstr "IDs to include"
 msgid "IDs to exclude"
 msgstr "IDs to exclude"
 
-#. Plugin Name of the plugin/theme
 msgid "oik user"
 msgstr "oik user"
 
-#. Plugin URI of the plugin/theme
 msgid "https://www.oik-plugins.com/oik-plugins/oik-user"
 msgstr "https://www.oik-plugins.com/oik-plugins/oik-user"
 
-#. Description of the plugin/theme
 msgid "oik lazy smart shortcodes by user ID/name"
 msgstr "oik lazy smart shortcodes by user ID/name"
 
-#. Author of the plugin/theme
 msgid "bobbingwide"
 msgstr "bobbingwide"
 
-#. Author URI of the plugin/theme
-msgid "https://www.oik-plugins.com/author/bobbingwide"
-msgstr "https://www.oik-plugins.com/author/bobbingwide"
+msgid "https://bobbingwide.com/about-bobbing-wide"
+msgstr "https://bobbingwide.com/about-bobbing-wide"
 

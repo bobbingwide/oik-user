@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.159567">
-    <testsuite name="Tests_follow_me" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-follow-me.php" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.159567">
-      <testcase name="test_follow_me_with_github_set" class="Tests_follow_me" classname="Tests_follow_me" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-follow-me.php" line="33" assertions="1" time="0.137783"/>
-      <testcase name="test_follow_me_with_wordpress_set" class="Tests_follow_me" classname="Tests_follow_me" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-follow-me.php" line="50" assertions="1" time="0.021784"/>
+  <testsuite name="'oik-user" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.141511">
+    <testsuite name="Tests_follow_me" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-follow-me.php" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.141511">
+      <testcase name="test_follow_me_with_github_set" class="Tests_follow_me" classname="Tests_follow_me" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-follow-me.php" line="33" assertions="1" time="0.096587"/>
+      <testcase name="test_follow_me_with_wordpress_set" class="Tests_follow_me" classname="Tests_follow_me" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-follow-me.php" line="50" assertions="1" time="0.044924"/>
     </testsuite>
   </testsuite>
 </testsuites>

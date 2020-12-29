@@ -3,8 +3,8 @@ Contributors: bobbingwide
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, smart, lazy
 Requires at least: 4.9.8
-Tested up to: 5.1.1
-Stable tag: 0.7.0
+Tested up to: 5.6
+Stable tag: 0.8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,6 +90,9 @@ Note: This plugin can be used in addition to the oik third contact plugin.
 4. [bw_users] in action 
 
 == Upgrade Notice ==
+= 0.8.0 = 
+Upgrade for improved display of userref type form fields.
+
 = 0.7.0 = 
 Upgrade for use with the Person block, from oik-blocks.
 
@@ -136,6 +139,13 @@ Dependent upon oik v2.0-alpha.0322
 oik-user is dependent upon oik base plugin v2.0-alpha
 
 == Changelog ==
+= 0.8.0 = 
+* Changed: Improved the display of userref form fields,[github bobbingwide oik-user issues 7]
+* Changed: Updated PHPUnit tests for PHPUnit 8
+* Tested: With WordPress 5.6 and WordPress Multi Site
+* Tested: With PHP 7.4
+* Tested: With PHPUnit 8  
+
 = 0.7.0 = 
 * Changed: Enable the follow_me virtual field access to the author's user ID when user='', [github bobbingwide oik-user issue 3]
 * Fixed: Trim the user parameter when the post's author is needed,[github bobbingwide oik-user issue 3]
