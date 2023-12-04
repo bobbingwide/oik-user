@@ -34,6 +34,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 function oiku_loaded() {
   add_action( "admin_bar_menu", "oiku_admin_bar_menu", 30 );
+	add_action( "oik_add_shortcodes", "oiku_add_shortcodes" );
+	add_action( "oik_admin_menu", "oiku_admin_menu" );
 }
 
 /**
@@ -237,8 +239,6 @@ function oiku_oik_fields_loaded() {
  */
 function oiku_plugin_loaded() {
   add_action( "oik_loaded", "oiku_loaded" );
-  add_action( "oik_add_shortcodes", "oiku_add_shortcodes" );
-  add_action( "oik_admin_menu", "oiku_admin_menu" );
   add_action( "admin_notices", "oiku_activation" );
   add_action( "wpmem_admin_style_list", "oiku_wpmem_admin_style_list" );
   add_filter( "wpmem_post_password", "oiku_wpmem_post_password" );
