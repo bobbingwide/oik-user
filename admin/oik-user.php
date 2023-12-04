@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2017
+<?php // (C) Copyright Bobbing Wide 2013-2017, 2023
 
 /**
  * Implements "oik_admin_menu" action for oik-user
@@ -285,7 +285,7 @@ function bw_get_user_meta( $ID, $key="bw_options" ) {
  *
  * @uses update_user_meta()  
  */
-function bw_update_user_meta( $ID, $key="bw_options", $new_value, $old_value=null ) {
+function bw_update_user_meta( $ID, $key="bw_options", $new_value=null, $old_value=null ) {
   $success = update_user_meta( $ID, $key, $new_value, $old_value );
   if ( $success === false ) {
     // Anything to do here? 
