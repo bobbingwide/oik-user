@@ -9,6 +9,7 @@
  * 
  */
 function oiku_contact_user( $atts=null, $content=null, $tag=null ) {
+	gob();
   oik_require( "shortcodes/oik-user.php", "oik-user" );
   $id = bw_array_get_dcb( $atts, "id", "id", "oiku_default_user" );
   $user = bw_get_user( $id );

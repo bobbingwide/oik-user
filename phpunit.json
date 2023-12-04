@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="'oik-user" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.141511">
-    <testsuite name="Tests_follow_me" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-follow-me.php" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.141511">
-      <testcase name="test_follow_me_with_github_set" class="Tests_follow_me" classname="Tests_follow_me" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-follow-me.php" line="33" assertions="1" time="0.096587"/>
-      <testcase name="test_follow_me_with_wordpress_set" class="Tests_follow_me" classname="Tests_follow_me" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-follow-me.php" line="50" assertions="1" time="0.044924"/>
+  <testsuite name="" tests="6" assertions="6" errors="0" warnings="0" failures="0" skipped="0" time="0.451775">
+    <testsuite name="'oik-user" tests="6" assertions="6" errors="0" warnings="0" failures="0" skipped="0" time="0.451775">
+      <testsuite name="Tests_load_libs" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-a-load-php.php" tests="4" assertions="4" errors="0" warnings="0" failures="0" skipped="0" time="0.328933">
+        <testcase name="test_load_admin" class="Tests_load_libs" classname="Tests_load_libs" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-a-load-php.php" line="26" assertions="1" time="0.186973"/>
+        <testcase name="test_load_includes" class="Tests_load_libs" classname="Tests_load_libs" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-a-load-php.php" line="31" assertions="1" time="0.027049"/>
+        <testcase name="test_load_shortcodes" class="Tests_load_libs" classname="Tests_load_libs" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-a-load-php.php" line="37" assertions="1" time="0.101853"/>
+        <testcase name="test_load_plugin" class="Tests_load_libs" classname="Tests_load_libs" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-a-load-php.php" line="58" assertions="1" time="0.013057"/>
+      </testsuite>
+      <testsuite name="Tests_follow_me" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-follow-me.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.122842">
+        <testcase name="test_follow_me_with_github_set" class="Tests_follow_me" classname="Tests_follow_me" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-follow-me.php" line="33" assertions="1" time="0.060839"/>
+        <testcase name="test_follow_me_with_wordpress_set" class="Tests_follow_me" classname="Tests_follow_me" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik-user\tests\test-follow-me.php" line="50" assertions="1" time="0.062003"/>
+      </testsuite>
     </testsuite>
   </testsuite>
 </testsuites>
