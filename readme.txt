@@ -3,8 +3,8 @@ Contributors: bobbingwide
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, smart, lazy
 Requires at least: 4.9.8
-Tested up to: 5.6
-Stable tag: 0.8.0
+Tested up to: 6.4.1
+Stable tag: 0.9.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,6 +90,9 @@ Note: This plugin can be used in addition to the oik third contact plugin.
 4. [bw_users] in action 
 
 == Upgrade Notice ==
+= 0.9.0 = 
+Update for support for PHP 8.1, PHP 8.2 and PHP 8.3 
+
 = 0.8.0 = 
 Upgrade for improved display of userref type form fields.
 
@@ -139,6 +142,14 @@ Dependent upon oik v2.0-alpha.0322
 oik-user is dependent upon oik base plugin v2.0-alpha
 
 == Changelog ==
+= 0.9.0 = 
+* Changed: Support PHP 8.1, PHP 8.2 and PHP 8.3 #8
+* Changed: Prevent oiku_contact_user from working #6
+* Changed: Don't respond to oik_add_shortcodes unless oik's activated
+* Tested: With WordPress 6.4.1 and WordPress Multisite
+* Tested: With PHP 8.1, PHP 8.2 and PHP 8.3
+* Tested: With PHPUnit 9.6
+
 = 0.8.0 = 
 * Changed: Improved the display of userref form fields,[github bobbingwide oik-user issues 7]
 * Changed: Updated PHPUnit tests for PHPUnit 8
