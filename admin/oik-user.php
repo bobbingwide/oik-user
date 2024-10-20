@@ -223,6 +223,7 @@ function oiku_user_contactmethod( $contact_methods, $key, $label, $shortcode ) {
  */
 function oiku_user_contactmethods( $contact_methods ) {
   $contact_methods = oiku_user_contactmethod( $contact_methods, "twitter", "Twitter"," [bw_twitter]" );
+  $contact_methods = oiku_user_contactmethod( $contact_methods, "x", "X username (without @)"," [bw_x]" );
   $contact_methods = oiku_user_contactmethod( $contact_methods, "facebook", "Facebook URL"," [bw_facebook]" );
   $contact_methods = oiku_user_contactmethod( $contact_methods, "linkedin", "LinkedIn URL"," [bw_linkedin]" );
   $contact_methods = oiku_user_contactmethod( $contact_methods, "googleplus", "Google+ URL"," [bw_googleplus]" );
