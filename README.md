@@ -4,13 +4,13 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, smart, lazy
 * Requires at least: 4.9.8
-* Tested up to: 6.4.1
-* Stable tag: 0.9.0
+* Tested up to: 6.7-beta3
+* Stable tag: 0.9.1
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Description 
-The oik-user plugin delivers two shortcode to display user based information
+The oik-user plugin delivers two shortcodes to display user based information
 plus the ability to define often included key information for each user,
 which is displayed by the shortcodes provided by the oik base plugin.
 
@@ -30,6 +30,7 @@ Other fields you can choose to display are:
 
 * googleplus - Google+ - deprecated by Google in April 2019
 * twitter - Twitter account
+* x - X account
 * facebook - Facebook account
 * linkedin - LinkedIn account
 * youtube - YouTube account
@@ -92,6 +93,9 @@ For the [bw_users] shortcode use the parameters to get_user() to select the user
 
 ## Upgrade Notice 
 # 0.9.0 
+Supports the X network that's replaced Twitter.
+
+# 0.9.0 
 Update for support for PHP 8.1, PHP 8.2 and PHP 8.3
 
 # 0.8.0 
@@ -143,6 +147,12 @@ Dependent upon oik v2.0-alpha.0322
 oik-user is dependent upon oik base plugin v2.0-alpha
 
 ## Changelog 
+# 0.9.1 
+* Added: Add option for X, to replace Twitter #10
+* Tested: With WordPress 6.7-beta3 and WordPress Multisite
+* Tested: With PHP 8.3
+* Tested: With PHPUnit 9.6
+
 # 0.9.0 
 * Changed: Support PHP 8.1, PHP 8.2 and PHP 8.3 #8
 * Changed: Prevent oiku_contact_user from working #6
@@ -228,6 +238,6 @@ oik-user is dependent upon oik base plugin v2.0-alpha
 
 ## Further reading 
 If you want to read more about the oik plugins then please visit the
-[oik plugin](http://www.oik-plugins.com/oik)
+[oik plugin](https://www.oik-plugins.com/oik)
 **"the oik plugin - for often included key-information"**
 

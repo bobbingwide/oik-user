@@ -3,7 +3,7 @@
 Plugin Name: oik user
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik-user
 Description: oik lazy smart shortcodes by user ID/name
-Version: 0.9.0
+Version: 0.9.1
 Author: bobbingwide
 Author URI: https://bobbingwide.com/about-bobbing-wide
 Text Domain: oik-user
@@ -11,7 +11,7 @@ Domain Path: /languages/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-    Copyright 2013-2023 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2013-2024 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,

@@ -1,39 +1,39 @@
-# Copyright (C) 2020 oik user
+# Copyright (C) 2024 oik user
 # This file is distributed under the same license as the oik user package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik user 0.8.0\n"
+"Project-Id-Version: oik user 0.9.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik-user\n"
-"POT-Creation-Date: 2020-12-29 16:46:56+00:00\n"
+"POT-Creation-Date: 2024-10-20 17:25:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-#: admin/oik-activation.php:29
+#: admin/oik-activation.php:30
 msgid "Install %1$s"
 msgstr "Install %1$s"
 
-#: admin/oik-activation.php:61
+#: admin/oik-activation.php:63
 msgid "Activate %1$s"
 msgstr "Activate %1$s"
 
-#: admin/oik-activation.php:79
+#: admin/oik-activation.php:82
 msgid "Upgrade %1$s"
 msgstr "Upgrade %1$s"
 
-#: admin/oik-activation.php:195
+#: admin/oik-activation.php:198
 msgid "version"
 msgstr "version"
 
-#: admin/oik-activation.php:197
+#: admin/oik-activation.php:201
 msgid "%1$s may not be fully functional."
 msgstr "%1$s may not be fully functional."
 
-#: admin/oik-activation.php:199
+#: admin/oik-activation.php:204
 msgid ""
 "Please install and activate the required minimum version of this plugin: %1$s"
 msgstr "Please install and activate the required minimum version of this plugin: %1$s"
@@ -66,71 +66,71 @@ msgid ""
 "Update."
 msgstr "Uncheck the action hooks that you do not want to have run, then click on Update."
 
-#: admin/oik-user.php:383
+#: admin/oik-user.php:384
 msgid "oik user options"
 msgstr "oik user options"
 
-#: admin/oik-user.php:396
+#: admin/oik-user.php:397
 msgid "Street-address"
 msgstr "Street-address"
 
-#: admin/oik-user.php:397
+#: admin/oik-user.php:398
 msgid "Locality"
 msgstr "Locality"
 
-#: admin/oik-user.php:398
+#: admin/oik-user.php:399
 msgid "Region"
 msgstr "Region"
 
-#: admin/oik-user.php:399
+#: admin/oik-user.php:400
 msgid "Post Code"
 msgstr "Post Code"
 
-#: admin/oik-user.php:400
+#: admin/oik-user.php:401
 msgid "Country name"
 msgstr "Country name"
 
-#: admin/oik-user.php:404
+#: admin/oik-user.php:405
 msgid "'Howdy,' replacement string"
 msgstr "'Hi,' replacement string"
 
-#: admin/oik-user.php:480
+#: admin/oik-user.php:481
 msgid "oik user settings"
 msgstr "oik user settings"
 
-#: admin/oik-user.php:488
+#: admin/oik-user.php:489
 msgid "Use this form to copy oik options values to a user of your choice."
 msgstr "Use this form to copy oik options values to a user of your choice."
 
-#: admin/oik-user.php:489
+#: admin/oik-user.php:490
 msgid "You should only need to do this once per user"
 msgstr "You should only need to do this once per user"
 
-#: admin/oik-user.php:516
+#: admin/oik-user.php:517
 msgid "Please choose source and target"
 msgstr "Please choose source and target"
 
-#: oik-user.php:138
+#: oik-user.php:140
 msgid "Invalid %s"
 msgstr "Invalid %s"
 
-#: oik-user.php:151
+#: oik-user.php:153
 msgid "User"
 msgstr "User"
 
-#: oik-user.php:180
+#: oik-user.php:182
 msgid "Howdy, %1$s"
 msgstr "Hi, %1$s"
 
-#: oik-user.php:205
+#: oik-user.php:207
 msgid "Optional"
 msgstr "Optional"
 
-#: oik-user.php:221
+#: oik-user.php:223
 msgid "Gravatar"
 msgstr "Gravatar"
 
-#: oik-user.php:230
+#: oik-user.php:232
 msgid "Follow me"
 msgstr "Follow me"
 
