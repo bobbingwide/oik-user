@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2019
+<?php // (C) Copyright Bobbing Wide 2013-2019, 2024
 
 /**
  * Register the user field if required
@@ -147,7 +147,7 @@ function oiku_user( $atts=null, $content=null, $tag=null ) {
 	//bw_trace2();
 
 	$id = bw_default_user( false );
-	$user_id = bw_array_get( $atts, "user", null );
+	$user_id = bw_array_get( $atts, "user", '' );
 	$user_id = trim( $user_id );
 	if ( $user_id ) {
 		$user = bw_get_user( $user_id );
