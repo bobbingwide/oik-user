@@ -1,0 +1,144 @@
+== Upgrade Notice ==
+= 0.9.1 =
+Supports the X network that's replaced Twitter. 
+
+= 0.9.0 = 
+Update for support for PHP 8.1, PHP 8.2 and PHP 8.3 
+
+= 0.8.0 = 
+Upgrade for improved display of userref type form fields.
+
+= 0.7.0 = 
+Upgrade for use with the Person block, from oik-blocks.
+
+= 0.6.1 = 
+Upgrade to support display of GitHub and WordPress follow me links
+
+= 0.6.0 = 
+Tested with WordPress 4.7. Depends on oik v3.1 and oik-fields v1.40.4
+
+= 0.5.2 =
+Fixes problem when oik is not active. Tested with WordPress 4.5
+
+= 0.5.1 =
+Update for pinterest and instagram contact methods
+
+= 0.5 = 
+Required for RNGS.org.uk - to allow the Match Manager field to be optional. i.e. None
+
+= 0.4 = 
+Required for RNGS.org.uk. Now supported on WordPress 3.9 and above 
+
+= 0.3 =
+For oik-fields v1.20 and oik v2.1-alpha.1103 or higher
+
+= 0.2 = 
+Required for Custom Post Types requiring a "userref" type field
+
+= 0.1.627 =
+Dependent upon oik v2.0
+
+= 0.1.0329 =
+Dependent upon oik v2.0-alpha.0329 and oik-fields 
+
+= 0.1.0326 =
+Dependent upon oik v2.0-alpha.0326 - for "oik_menu_box" action
+
+= 0.1.0325 = 
+Dependent upon oik v2.0-alpha.0322 and oik-fields v1.18.0325
+
+= 0.1.0322 =
+Dependent upon oik v2.0-alpha.0322
+
+= 0.1.0303 = 
+oik-user is dependent upon oik base plugin v2.0-alpha
+
+== Changelog ==
+= 0.9.1 = 
+* Added: Add option for X, to replace Twitter #10
+* Tested: With WordPress 6.7-beta3 and WordPress Multisite
+* Tested: With PHP 8.3
+* Tested: With PHPUnit 9.6
+
+= 0.9.0 = 
+* Changed: Support PHP 8.1, PHP 8.2 and PHP 8.3 #8
+* Changed: Prevent oiku_contact_user from working #6
+* Changed: Don't respond to oik_add_shortcodes unless oik's activated
+* Tested: With WordPress 6.4.1 and WordPress Multisite
+* Tested: With PHP 8.1, PHP 8.2 and PHP 8.3
+* Tested: With PHPUnit 9.6
+
+= 0.8.0 = 
+* Changed: Improved the display of userref form fields,[github bobbingwide oik-user issues 7]
+* Changed: Updated PHPUnit tests for PHPUnit 8
+* Tested: With WordPress 5.6 and WordPress Multi Site
+* Tested: With PHP 7.4
+* Tested: With PHPUnit 8  
+
+= 0.7.0 = 
+* Changed: Enable the follow_me virtual field access to the author's user ID when user='', [github bobbingwide oik-user issue 3]
+* Fixed: Trim the user parameter when the post's author is needed,[github bobbingwide oik-user issue 3]
+* Added: Update bw_user to display gravatar, with author-box style,[github bobbingwide oik-user issue 3]
+* Tested: With WordPress 5.1.1 and WordPress Multisite
+* Tested: With PHP 7.2
+* Tested: With Gutenberg 5.4
+
+= 0.6.1 =
+* Added: GitHub and WordPress.org contact method displayed by [bw_follow_me] [github bobbingwide oik-user issues 5] 
+* Tested: with WordPress 4.8.2 and 4.9-beta3
+
+= 0.6.0 = 
+* Added: Add gravatar virtual field and author-box styling [github bobbingwide oik-user issue 3]
+* Added: GitHub contact method
+* Changed: Allow bw_user's fields parameter to be the first positional parameter [github bobbingwide oik-user issue 4]
+* Tested: With WordPress 4.7 and WordPress Multisite
+
+= 0.5.2 =
+* Fixed: Uncaught Error: Call to undefined function bw_get_user_field() when oik deactivated [github bobbingwide oik-user issue 2]
+* Tested: With WordPress 4.5 and WordPress MultiSite
+
+= 0.5.1 =
+* Added: pinterest and instagram contact methods ( Issue #1 )
+* Changed: Dependent upon oik-fields v1.40.1 and oik v2.5 or higher
+* Tested: With WordPress 4.4-beta1
+
+= 0.5 = 
+* Added: "oik user admin" page where an Admin user can control what a normal user sees when viewing their User Profile
+* Added: Individual users may replace "Howdy," with their own string. 
+* Added: Logic to allow admin user to decide which action hooks are run to display other User Profile information
+* Added: Logic to allow admin user to decide which user contact fields are displayed
+* Added: Syntax help for [bw_users]
+* Added: Userref fields can now be defined as #optional.
+* Changed: Removed unnecessary functions developed for first version of [bw_users] shortcode. 
+* Fixed: oiku_field_validation_userref() 
+
+= 0.4=
+* Added: [bw_users] shortcode, similar to [bw_table]
+* Changed: Now responds to "oik_add_shortcodes" action hook
+* Changed: bw_theme_field_userref() displays the first item from an array of fields 
+
+= 0.3 =
+* Changed: bw_theme_field_userref() handles an array of $values - chooses first
+* Changed: oiku_user() changed to support oik i18n changes
+
+= 0.2 = 
+* Added: Support for "userref" field - allowing a field to reference a user
+
+= 0.1.0627 =
+* Added: Display of user registration date, authentication key and Active flag ( from wp-members )
+
+= 0.1.0329 =
+* Changed: Altered copy functionality to cater for User contact fields such as twitter and facebook
+
+= 0.1.0326 = 
+* Added: Functionality to copy oik options data to specific users. Uses "oik_menu_box" action
+
+= 0.1.0325 = 
+* Added: Registers certain fields when referenced: display_name, description (bio), email, url
+
+= 0.1.0322 = 
+* Changed: [bw_contact_form] functions now in the oik base
+* Added: support using oik base options ( with user=0 parameter) 
+
+= 0.1.0303 =
+* Added: Initial logic [bw_user] shortcode to display user profile information
